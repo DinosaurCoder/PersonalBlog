@@ -1,0 +1,57 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url(../image/bg.jpg);
+
+}
+.title{
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    line-height: 50px;
+    font-size: 20px;
+    color: black;
+}
+.link{
+    padding: 10px;
+    width: 95%;
+    border: 1px solid #cccccc;
+    margin: 0px auto;
+    font-size: 12px;
+}
+.link > a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+}
+.block_list{
+    width: 95%;
+    padding: 10px;
+    margin: 10px auto;
+    font-weight: 600;
+    border: 1px solid #cccccc;
+}
+.block_list  span{
+    display: block;
+}
+.block_list  ul{
+    font-size: 14px;
+    padding: 10px 10px;
+    font-weight: 600;
+    margin: 10px auto;
+    width: 100%;
+}
+.block_list li{
+    margin-top: 10px;
+    list-style: none;
+}
+.block_list a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    margin-top: 10px;
+    border-bottom: 1px solid #333333;
+}
+
