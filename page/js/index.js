@@ -49,6 +49,7 @@ var article_list = new Vue({
                 }).then(function (resp) {
                     var result = resp.data.data;
                     var list = [];
+                    console.log(result);
                     for (var i = 0; i < result.length; i++) {
                         var temp = {};
                         temp.title = result[i].title;

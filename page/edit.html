@@ -27,6 +27,7 @@
           url:"/editBlog?title="+title+"&tags="+tags,
           method: "post",
           data : content,
+          datatype:Text,
           success: function(resp){
             var result = JSON.parse(resp);
             alert(result.msg);

@@ -30,7 +30,7 @@ var blogDetail = new Vue({
             var result = resp.data.data[0];
             blogDetail.title = result.title;
             blogDetail.content = result.content;
-            blogDetail.ctime = result.ctime;
+            blogDetail.ctime = new Date(parseInt( result.ctime) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ') ;
             blogDetail.views = result.views;
             blogDetail.tags = result.tags;
         }).catch(function (resp) {
