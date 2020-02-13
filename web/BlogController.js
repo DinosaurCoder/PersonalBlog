@@ -16,6 +16,7 @@ path.set("/queryHotBlog",queryHotBlog);
 function queryBlogById(request,response){
     var params = url.parse(request.url, true).query;
     blogDao.queryBlogId(parseInt(params.bid),function(result){
+        console.log(result);
         response.writeHead(200);
         response.write(respUtil.writeResult("success", "查询成功", result));
         response.end();
@@ -46,10 +47,11 @@ function queryBlogByPage(request, response) {
     var params = url.parse(request.url, true).query;
     blogDao.queryBlogByPage(parseInt(params.page), parseInt(params.pageSize), function (result) {
         for(var i=0; i<result.length;i++){
-            result[i].content = result[i].content.replace(/<[\w\W]*">/,"");
+            result[i].content = result[i].content.replace(/<\/?.+?\/?>/g,"");
             result[i].content = result[i].content.replace(/&nbsp;/g,"");
+            result[i].content = result[i].content.replace(/#;/g,"");
             result[i].content = result[i].content.replace(/<[\w\W]{1,5}>/g,"");
-            result[i].content = result[i].content.substring(0,300).trim();
+            result[i].content = result[i].content.substring(0,300);
         }
         response.writeHead(200);
         response.write(respUtil.writeResult("success", "查询成功", result));
@@ -63,10 +65,15 @@ function editBlog(request, response) {
     var params = url.parse(request.url, true).query;
     var tags = params.tags.replace(/ /g, "").replace("，", ",");
     request.on("data", function (data) {
+        console.log(data.toString());
         blogDao.insertBlog(params.title, data.toString(), 0, tags, timeUtil.getNow(), timeUtil.getNow(), function (result) {
-            response.writeHead(200);
-            response.write(respUtil.writeResult("success", "添加成功", null));
-            response.end();
+            try{
+                response.writeHead(200);
+                response.write(respUtil.writeResult("success", "添加成功", null));
+                response.end();
+            }catch(err){
+                console.log(err);
+            }
             var blogId = result.insertId;
             var tagList = tags.split(",");
             for (var i = 0; i < tagList.length; i++) {

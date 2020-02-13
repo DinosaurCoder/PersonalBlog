@@ -29,8 +29,8 @@ var article_list = new Vue({
     el: "#article_list",
     data: {
         page: 1,
-        pageSize: 5,
-        count: 100,
+        pageSize: 7,
+        count: 200,
         pageNumList: [],
         articleList: []
     },
