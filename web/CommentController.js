@@ -2,7 +2,6 @@ var blogDao = require("../dao/BlogDao");
 var tagsDao = require("../dao/TagsDao")
 var timeUtil = require("../util/TimeUtil");
 var respUtil = require("../util/respUtil");
-var tagBlogMappingDao = require("../dao/TagBlogMappingDao");
 var commentDao = require("../dao/commentDao");
 var captcha = require("svg-captcha");
 var url = require("url");

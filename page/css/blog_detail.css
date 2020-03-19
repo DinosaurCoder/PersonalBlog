@@ -21,6 +21,7 @@
 .blog_content{
     padding:20px 0px 20px 10px;
     word-break: break-all;
+    white-space: normal !important;
 }
 .send_comments{
     background: #f5f5f5;

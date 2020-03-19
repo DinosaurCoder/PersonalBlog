@@ -129,6 +129,37 @@ function queryHotBlog(size,success){
     })
     connection.end();
 }
+function queryBlogBySearch(search,success) {
+    var sql = "select * from blogs where title like concat(concat('%', ?), '%')";
+    var params = [search];
+    var connection = dbUtil.createConnection();
+    connection.connect();
+    connection.query(sql, params, function (error, result) {
+        if (error) {
+            console.log(error);
+        } else {
+            success(result);
+        }
+    });
+    connection.end();
+}
+
+function queryBlogBySearchCount(search, success) {
+    var sql = "select count(1) from blogs where title like \"%?%\";";
+    var params = [search];
+    var connection = dbUtil.createConnection();
+    connection.connect();
+    connection.query(sql, params, function (error, result) {
+        if (error) {
+            console.log(error);
+        } else {
+            success(result);
+        }
+    });
+    connection.end();
+}
+module.exports.queryBlogBySearch = queryBlogBySearch;
+module.exports. queryBlogBySearchCount =  queryBlogBySearchCount;
 module.exports.insertBlog = insertBlog;
 module.exports.queryBlogByPage = queryBlogByPage;
 module.exports.queryBlogCount = queryBlogCount;

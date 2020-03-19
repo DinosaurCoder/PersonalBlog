@@ -1,31 +1,37 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     text-decoration: none;
     list-style: none;
 }
 
-@font-face{
+@font-face {
     font-family: "MyIcon";
     src: url("../font/glyphicons-halflings-regular.woff2");
 }
-body{
-    background-image: url(../image/bg.jpg);
+body {
+    zoom: 0.9;
+    font-family: 'webfont';
     position: relative;
     text-align: center;
+    /* width: 100%; */
+    background-color: rgb(85, 179, 179);
 }
-.header{
+
+.header {
     width: 100%;
     height: 50px;
     background-color: #191818;
 }
-.container{
+
+.container {
     position: relative;
-    width: 1170px;
+    width: 1070px;
     height: 50px;
     margin: 0 auto;
 }
-.title{
+
+.title {
     display: inline-block;
     float: left;
     line-height: 50px;
@@ -33,10 +39,20 @@ body{
     color: #eeeeee;
     font-size: 18px;
 }
-.menu{
+
+.menu {
     float: left;
 }
-.menu li{
+
+.regesiter {
+    font-size: 16px;
+}
+
+.regesiter a {
+    text-decoration: none;
+}
+
+.menu li {
     display: inline-block;
     float: left;
     height: 50px;
@@ -46,10 +62,12 @@ body{
     line-height: 50px;
     text-align: center;
 }
-.menu li a{
+
+.menu li a {
     color: #eeeeee;
 }
-.search>input{
+
+.search>input {
     display: inline-block;
     position: absolute;
     height: 22px;
@@ -63,7 +81,8 @@ body{
     margin-top: -17px;
     right: 60px;
 }
-.search>button{
+
+.search>button {
     display: inline-block;
     position: absolute;
     width: 54px;
@@ -74,33 +93,47 @@ body{
     margin-top: -17px;
     outline: none;
     color: #555555;
-    right:0px;
+    right: 0px;
     background: white;
 }
-.content{
+@font-face {
+    font-family: 'webfont';
+    font-display: swap;
+    src: url('//at.alicdn.com/t/webfont_lxmy7tmyfli.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/webfont_lxmy7tmyfli.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/webfont_lxmy7tmyfli.woff2') format('woff2'),
+    url('//at.alicdn.com/t/webfont_lxmy7tmyfli.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/webfont_lxmy7tmyfli.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/webfont_lxmy7tmyfli.svg#AlibabaPuHuiTiM') format('svg'); /* iOS 4.1- */
+  }
+.content {
     width: 1170px;
     position: relative;
     display: inline-block;
     margin: 30px auto 0px auto;
     /* background: blue; */
 }
-.content_left{
+
+.content_left {
     float: left;
     width: 66%;
     padding: 0px 20px 0px 0px;
     box-sizing: border-box;
     /* background: pink; */
 }
-.content_left:after{
+
+.content_left:after {
     clear: both;
     content: none;
 }
-.content-right{
+
+.content-right {
     width: 34%;
     float: right;
     padding: 0px 0px 0px 0px;
 }
-.right-moodule{
+
+.right-moodule {
     display: inline-block;
     width: 100%;
     background: #1f1f1f;
@@ -110,71 +143,85 @@ body{
     padding: 0px 15px 25px 15px;
     margin-bottom: 25px;
 }
-.right-moodule div{
+
+.right-moodule div {
     display: block;
     text-align: left;
     font-size: 14px;
     color: dodgerblue;
     padding: 15px 5px 15px 0px;
 }
-.right-moodule  a{
+
+.right-moodule a {
     display: inline-block;
     color: powderblue;
     font-size: 14px;
     margin-right: 5px;
     text-decoration: none;
 }
-.right-moodule  a:hover{
+
+.right-moodule a:hover {
     color: yellowgreen;
 }
-.right-moodule ul li{
+
+.right-moodule ul li {
     margin-bottom: 10px;
     border-bottom: 2px solid #404040;
 }
+
 .right-moodule ul li a {
     color: white;
     font-size: 14px;
 }
+
 .right-moodule ul li div {
     padding: 5px 0;
 }
-.right-moodule ul li span{
+
+.right-moodule ul li span {
     font-size: 14px;
     color: white;
 }
+
 .right-moodule ul li p {
     font-size: 14px;
-    color: #777777 ;
+    color: #777777;
 }
-.pull-right{
+
+.pull-right {
     position: absolute;
     right: 15px;
 }
-.right-moodule > span{
+
+.right-moodule>span {
     display: inline-block;
     width: 50%;
     height: 30px;
     margin-top: 10px;
 }
-.right-moodule > span >a{
+
+.right-moodule>span>a {
     text-decoration: none;
     color: white;
     font-size: 14px;
     line-height: 30px;
 }
-.footer{
+
+.footer {
     width: 100%;
-    height: 60px;
+    height: 50px;
     background-color: #191818;
     text-align: center;
-    padding: 20px;
+    padding:20px 0;
 }
-.footer ul{
+
+.footer ul {
     display: inline-block;
     margin: 0px auto;
     text-align: center;
 }
-.footer>ul>li{
+
+.footer>ul>li {
     display: inline-block;
     color: #a2a2a2;
     float: left;
@@ -183,18 +230,27 @@ body{
     cursor: pointer;
     text-align: center;
 }
-.footer > p{
+
+.information {
+    font-size: 14px;
+    color: #fff;
+}
+
+.footer>p {
     font-size: 10px;
     color: #a2a2a2;
 }
-.right-say{
+
+.right-say {
     position: relative;
 }
-.page_tool{
+
+.page_tool {
     margin-top: 20px;
     display: inline-block;
 }
-.page_tool > ul >li{
+
+.page_tool>ul>li {
     display: inline-block;
     list-style: none;
     width: 40px;
@@ -207,10 +263,38 @@ body{
     cursor: pointer;
     border-radius: 5px;
 }
-.page_tool > ul >li:hover{
+
+.page_tool>ul>li:hover {
     background: cadetblue;
 }
-.nowPage{
-    background:#CDC9C9;
+
+.nowPage {
+    background: #CDC9C9;
     color: #00F5FF
+}
+
+.pager {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.pager .pager-item {
+    display: inline-block;
+    padding: 5px 7px;
+    /* border: 1px solid #ccc; */
+    margin: 8px;
+    cursor: pointer;
+    color: rgb(31, 31, 56);
+}
+
+.pager .pager-item.disabled {
+    color: transparent;
+    cursor: not-allowed;
+}
+
+.pager .pager-item.active {
+    color: #f40;
+    border: none;
+    cursor: auto;
 }

@@ -47,6 +47,7 @@ function queryBlogByPage(request, response) {
     blogDao.queryBlogByPage(parseInt(params.page), parseInt(params.pageSize), function (result) {
         for(var i=0; i<result.length;i++){
             result[i].content = result[i].content.replace(/<[^>]+>/g," ");
+            result[i].content = result[i].content.replace(/&nbsp;/g,'')
             result[i].content = result[i].content.substring(0,400);
         }
         response.writeHead(200);
@@ -81,6 +82,26 @@ function editBlog(request, response) {
 }
 path.set("/editBlog", editBlog);
 
+function blogsearch(request,response){
+    var params = url.parse(request.url, true).query;
+    if (!params.search) {
+        response.writeHead(400);
+        response.end("must have be search");
+        return;
+    }
+    blogDao.queryBlogBySearch(params.search,function (result) {
+        blogDao.queryBlogBySearchCount(params.search, function (count) {
+            for(var i=0; i<result.length;i++){
+                result[i].content =result[i].content.replace(/<[^>]+>/g," ");
+                result[i].content = result[i].content.replace(/&nbsp;/g,'')
+                result[i].content = result[i].content.substring(0,400);
+            }
+            response.writeHead(200);
+            response.end(JSON.stringify({count: count, list: result}));
+        });
+    });
+}
+path.set("/blogsearch",blogsearch)
 function queryTag(tag, blogId) {
     tagsDao.queryTag(tag, function (result) {
         if (result == null || result.length == 0) {

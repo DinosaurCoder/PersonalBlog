@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DinosaurBlog</title>
-    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css//base.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="shortcut icon" href="./image/bitbug_favicon.ico" type="image/x-icon">
     <script src="https://cdn.bootcss.com/axios/0.19.0/axios.js"></script>
@@ -23,9 +23,9 @@
                 <li><a href="/about.html">关于</a></li>
                 <li><a href="/guestbook.html">留言</a></li>
             </ul>
-            <div class="search">
-                <input type="text" placeholder="输入关键词查找">
-                <button>搜索</button>
+            <div class="search" id="search">
+                <input type="text" placeholder="输入关键词查找" v-model="search"/>
+                <button v-on:click="sendSearch">搜索</button>
             </div>
         </div>
     </header>
@@ -33,21 +33,24 @@
         <div class="content_left">
             <div class="every_day" id="everyday">
                 <span>每日一句</span>
-                
+
                 <p v-html="getContent"></p>
-                
+
             </div>
             <div class="article_list" id="article_list">
                 <div class="article" v-for="article in articleList">
-                    <a v-bind:href="article.link" class="article_title">{{article.title}}</a>
+                    <a v-bind:href="article.link" class="article_title" _blank>{{article.title}}</a>
                     <p class="article_content">{{article.content}}</p>
                     <div class="article_foot">发布于{{article.date}} | 浏览({{article.views}}) | Tags：{{article.tags}}</div>
                 </div>
-                <div class="page_tool">
+                <!-- <div class="page_tool">
                     <ul>
-                        <li v-for="pageNum in pageNumList" v-on:click="jumpTo(pageNum.page)" v-bind:class="{nowPage:(pageNum.text == page)}" >{{pageNum.text}}</li>
+                        <li v-for="pageNum in pageNumList" v-on:click="jumpTo(pageNum.page)"
+                            v-bind:class="{nowPage:(pageNum.text == page)}">{{pageNum.text}}</li>
                     </ul>
-                </div>
+                </div> -->
+                <div id="block">
+                  </div>
             </div>
 
 
@@ -55,7 +58,7 @@
         <div class="content-right">
             <div class="right-moodule" id="right_tags">
                 <div>随机标签云</div>
-                <a href="/" v-for="tag in tags" v-bind:style="{color:randomColor(),fontSize:randomSize()}">{{tag}}</a>
+                <a v-bind:href="tag.link" v-for="tag in tags" v-bind:style="{color:randomColor(),fontSize:randomSize()}">{{tag.text}}</a>
             </div>
             <div class="right-moodule" id="new_hot">
                 <div>最近热门</div>
@@ -77,35 +80,35 @@
             </div>
             <div class="right-moodule">
                 <div>友情链接</div>
-                <span><a href="/">IT茶馆</a></span><span><a href="/">随心博客</a></span>
-                <span><a href="/">IT茶馆</a></span><span><a href="/">随心博客</a></span>
-                <span><a href="/">IT茶馆</a></span><span><a href="/">随心博客</a></span>
-                <span><a href="/">IT茶馆</a></span><span><a href="/">随心博客</a></span>
-                <span><a href="/">IT茶馆</a></span><span><a href="/">随心博客</a></span>
-                <span><a href="/">IT茶馆</a></span><span><a href="/">随心博客</a></span>
+                <span><a href="/">链接待定</a></span><span><a href="/">链接待定</a></span>
+                <span><a href="/">链接待定</a></span><span><a href="/">链接待定</a></span>
+                <span><a href="/">链接待定</a></span><span><a href="/">链接待定</a></span>
+                <span><a href="/">链接待定</a></span><span><a href="/">链接待定</a></span>
+                <span><a href="/">链接待定</a></span><span><a href="/">链接待定</a></span>
+                <span><a href="/">链接待定</a></span><span><a href="/">链接待定</a></span>
             </div>
         </div>
     </div>
     <footer class="footer">
-        <ul>
-            <li>前端开发</li>
-            <li>C/C++</li>
-            <li>Java</li>
-            <li>大数据</li>
-            <li>webpack</li>
-            <li>ReactNactive</li>
-            <li>图灵机器人</li>
-            <li>Python</li>
-            <li>VUE</li>
-            <li>JQuery</li>
-        </ul>
-        <p>
-            这里是版权信息
-        </p>
+            <ul>
+                <li>前端开发</li>
+                <li>C/C++</li>
+                <li>Java</li>
+                <li>大数据</li>
+                <li>webpack</li>
+                <li>ReactNactive</li>
+                <li>图灵机器人</li>
+                <li>Python</li>
+                <li>VUE</li>
+                <li>JQuery</li>
+            </ul>
+            <p>
+                <a href="http://beian.miit.gov.cn">陇ICP备20000485号</a>   
+            </p>
     </footer>
 
-<script src="./js/index.js"></script>
-<script src="./js/base.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/base.js"></script>
 </body>
 
 </html>
